@@ -35,6 +35,7 @@ jdlName = 'submitJobs.jdl'
 jdlFile = open('tmpSub/%s'%jdlName,'w')
 jdlFile.write('Executable =  runMinitree.sh \n')
 jdlFile.write(common_command)
+jdlFile.write('Queue 1\n')
 condorOutDir="/cms/store/user/psuryade/RUN2_UL/minitree_condor/SIXTEEN/MC_preVFP/Tbarchannel/"
 a = os.system("xrdfs root://se01.indiacms.res.in/ stat -q IsDir " + condorOutDir)
 if a != 0: 

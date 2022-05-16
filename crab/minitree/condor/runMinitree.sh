@@ -1,7 +1,7 @@
 #!/bin/bash
 #To be run on remote machine
 #Take input arguments as an array
-myArray=( "$@" )
+#myArray=( "$@" )
 #Array: Size=$#, an element=$1, all element = $@
 
 printf "Start Running Histogramming at ";/bin/date
@@ -17,10 +17,10 @@ else
     scramv1 project CMSSW CMSSW_10_6_29
     cd CMSSW_10_6_29/src
     eval `scramv1 runtime -sh`
-    cp ../../generator.tar.gz .
+    cp ../../minitree.tar.gz .
 fi
 
-tar --strip-components=0 -zxvf generator.tar.gz
+tar --strip-components=0 -zxvf minitree.tar.gz
 
 if [ -z ${_CONDOR_SCRATCH_DIR} ] ; then 
     echo "Running Interactively" ; 
@@ -47,8 +47,9 @@ fi
 #fi
 #echo "./makeSkim ${year}${jobNum} ${sample}_Skim_NanoAOD.root ${!varname}"
 #./makeSkim ${year}$jobNum ${sample}_Skim_NanoAOD.root ${!varname}
-echo "python PhysicsTools/NanoAODTools/crab/minitree/crab_script_Minitree.py"
-python PhysicsTools/NanoAODTools/crab/minitree/crab_script_Minitree.py
+cd PhysicsTools/NanoAODTools/crab/minitree/
+echo "python crab_script_Minitree.py"
+python crab_script_Minitree.py
 
 printf "Done minitrees at ";/bin/date
 #---------------------------------------------

@@ -29,8 +29,9 @@ treecut = cut_2J1T1_mu_2016
 #inputFiles=["/afs/cern.ch/user/m/mikumar/work/private/NanoAOD_new/CMSSW_10_6_0/src/PhysicsTools/NanoAODTools/crab/minitree/tree_3.root"]
 #inputFiles=["/afs/cern.ch/user/m/mikumar/work/private/NanoAOD_new/CMSSW_10_6_24/src/Inputfiles/skimtree/MC/t-channel/tree_10.root"]
 #inputFiles=["/afs/cern.ch/user/m/mikumar/work/private/NanoAOD_new/CMSSW_10_6_24/src/Inputfiles/skimtree/DATA/Single_muon/RUNB/tree_10.root"]
+inputFiles=["root://se01.indiacms.res.in//store/user/mikumar/RUN2_UL/Tree_crab/SIXTEEN/MC_preVFP/Tbarchannel/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/Tree_22_Apr22_MCUL2016preVFP_Tbarchannel_check/220422_170108/0000/tree_10.root"]
 p=PostProcessor(".",
-		inputFiles(),
+		inputFiles,
 		treecut,
 		modules=[MinitreeModuleConstr2J1T1_mu_data_UL2016preVFP(), jmeCorrectionsULRun2016C_preVFP_DATA_AK4CHS()],
 		outputbranchsel="keep_and_drop_mu_Minitree.txt",
